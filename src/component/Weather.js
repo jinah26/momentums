@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+import APIKey from '../config/key';
+
 const WeatherWrapper = styled.div`
   position: absolute;
   right: 0;
@@ -29,7 +31,7 @@ function Weather() {
 
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${'Seoul'}&appid=${'bea9a160a1389b9ca9f30eb010b60bd4'}`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${'Seoul'}&appid=${APIKey}`)
         .then( res => {
             setWeather(res.data);
             setIsLoading(false);
